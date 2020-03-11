@@ -63,14 +63,14 @@
                 и position: relative для контейра, то есть карты (#game-map2d)
             -->
             <div id="game-map2d">
-                <div class="town" style="top:64px;left:64px;"></div>
-                <div class="town" style="top:32px;left:744px;"></div>
-                <div class="town" style="top:234px;left:128px;"></div>
-                <div class="town" style="top:128px;left:438px;"></div>
-                <div class="town" style="top:332px;left:288px;"></div>
-                <div class="town" style="top:242px;left:632px;"></div>
-                <div class="town" style="top:428px;left:802px;"></div>
-				<div class="town" style="top:428px;left:702px;"></div>
+                <div class="town hidden" style="top:64px;left:64px;"></div>
+                <div class="town hidden city" id="city1" ></div>
+                <div class="town hidden city" id="city2" ></div>
+                <div class="town hidden city" id="city3" ></div>
+                <div class="town hidden city" id="city4" ></div>
+                <div class="town hidden city" id="city5" ></div>
+                <div class="town hidden city" id="city6" ></div>
+				<div class="town hidden city" id="city7" ></div>
                 <div id="map-player"></div>
             </div>
         </div>
@@ -119,6 +119,7 @@
 <script src="js/Game.js"></script>
 
 <!-- плагины -->
+<script src="js/plugins/GenerateCityPlugin.js"></script>
 <script src="js/plugins/CorePlugin.js"></script>
 <script src="js/plugins/Map2DPlugin.js"></script>
 <script src="js/plugins/RandomEventPlugin.js"></script>
