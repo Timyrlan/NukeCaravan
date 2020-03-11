@@ -15,8 +15,8 @@ GenerateCity.init = function (world) {
 	  },
 	  {
 		name:"St.Petersburg",
-		x:75,
-		y:75,
+		x:160,
+		y:40,
 		number:2,
 		size:8
 	  }
@@ -30,9 +30,10 @@ var updateVisibleCities = function(world)
 {
 	for (i = 0; i < world.cities.length; i++) {
         var city = world.cities[i];
-        if(areNearPoints(city,world.caravan,50)){
+        if(areNearPoints(city,world.caravan,100)){
 			var cityElement = document.getElementById("city"+city.number);
 			cityElement.classList.remove("hidden");
+			cityElement.style=`top:${city.y}px;left:${city.x}px;`
 		}
     }
 };
