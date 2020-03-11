@@ -6,11 +6,11 @@
 Map2DPlugin = {
     // чтобы не гонять DOM каждый раз - гоняем только когда обновляются координаты игрока
     // для этогоп делаем проверку через это поле
-    lastPlayerPosition: {x: 0, y: 0},
+    lastPlayerPosition: {x: -1000, y: -1000},
     // маркер "мы в городе" - соответствует "открыт диалог города"
     inTown: false,
     // последний посещенный город
-    lastTown: { x: -1, y: -1 },
+    lastTown: {x: -1000, y: -1000},
 };
 
 Map2DPlugin.init = function (world) {
@@ -62,6 +62,7 @@ Map2DPlugin.init = function (world) {
         world.caravan.y = startCity.y;
         // запоминаем его как последний, чтобы не торговать в нем же при быстром возвращении
         this.lastTown = startCity;
+		this.lastTown.isFirstStop = true;
         world.stop = true; // чтобы не двигался
         this.movePlayerViewTo(world.caravan.x, world.caravan.y);		
     }
@@ -90,25 +91,14 @@ Map2DPlugin.update = function () {
 				this.world.uiLock = true; // маркируем интерфейс как блокированный
 				addLogMessage(this.world, Goodness.positive, `Вы достигли города ${city.name}`);
 				// проверка что мы были в этом городе
-				var revisit = this.lastTown.number===city.number;
+				var revisit = this.lastTown.number===city.number && !this.lastTown.isFirstStop;
+				this.lastTown.isFirstStop = false;
 				// запоминаем последений посещенный город
 				this.lastTown = city;
 				DialogWindow.show(TownDialogs, this.world, revisit, this);
 			}				
         }
     }    
-
-    // // проверяем достижение города на остановках
-    // if (this.world.stop && this.isAboutTarget(this.world)) {
-        // this.inTown = true;
-        // this.world.uiLock = true; // маркируем интерфейс как блокированный
-        // addLogMessage(this.world, Goodness.positive, "Вы достигли города!");
-        // // проверка что мы были в этом городе
-        // var revisit = this.world.to.x === this.lastTown.x && this.world.to.y === this.lastTown.y;
-        // // запоминаем последений посещенный город
-        // this.lastTown = { x: this.world.to.x, y: this.world.to.y};
-        // DialogWindow.show(TownDialogs, this.world, revisit, this);
-    // }
 };
 
 

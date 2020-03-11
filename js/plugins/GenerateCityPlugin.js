@@ -140,7 +140,7 @@ GenerateCity.init = function (world) {
 	}
 	  
 	  
-	  updateVisibleCities(world);
+	  //updateVisibleCities(world);
 	  
 };
 
