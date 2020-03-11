@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Nuke Caravan</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+<div id="w">
+    <a href="" id="logo"><img src="images/logo.png"/></a>
+    <!--  Индикатор груза и перегруза -->
+    <div id="game-weight-bar">
+        <div id="game-weight-barfill"></div>
+        <div id="game-weight-bartext">груз 344/ максимальный груз 560</div>
+    </div>
+    <div class="endfloat"></div>
+    <div id="game">
+        <!--  Индикаторы характеристик каравана -->
+        <div id="game-stats">
+            <div>
+                <span id="game-stat-crew" class="game-stat-value">0</span>
+                <span class="game-stat-desc">Людей</span>
+            </div>
+            <div>
+                <span id="game-stat-oxen" class="game-stat-value">0</span>
+                <span class="game-stat-desc">Браминов</span>
+            </div>
+            <div>
+                <span id="game-stat-food" class="game-stat-value">0</span>
+                <span class="game-stat-desc">Еда</span>
+
+            </div>
+            <div>
+                <span id="game-stat-firepower" class="game-stat-value">0</span>
+                <span class="game-stat-desc">Оружие</span>
+            </div>
+            <div>
+                <span id="game-stat-cargo" class="game-stat-value">0</span>
+                <span class="game-stat-desc">Груз</span>
+            </div>
+            <div>
+                <span id="game-stat-money" class="game-stat-value">0</span>
+                <span class="game-stat-desc">Деньги</span>
+            </div>
+            <div>
+                <span id="game-stat-distance" class="game-stat-value">0</span>
+                <span class="game-stat-desc">Пройдено</span>
+            </div>
+            <div>
+                <span id="game-stat-day" class="game-stat-value">0</span>
+                <span class="game-stat-desc">День</span>
+            </div>
+            <i class="endfloat"></i>
+        </div>
+
+        <!-- Модуль карты. Класс frame_border просто создает рамку -->
+        <div class="frame_border">
+            <!--
+                Города и маркер игрока позиционируются с помощью CSS-правил top и left.
+                Для этого в CSS было задано position: absolute для .town
+                и position: relative для контейра, то есть карты (#game-map2d)
+            -->
+            <div id="game-map2d">
+                <div class="town" style="top:64px;left:64px;"></div>
+                <div class="town hidden" style="top:32px;left:744px;"></div>
+                <div class="town hidden" style="top:234px;left:128px;"></div>
+                <div class="town hidden" style="top:128px;left:438px;"></div>
+                <div class="town hidden" style="top:332px;left:288px;"></div>
+                <div class="town hidden" style="top:242px;left:632px;"></div>
+                <div class="town hidden" style="top:428px;left:802px;"></div>
+				<div class="town hidden" style="top:428px;left:702px;"></div>
+                <div id="map-player"></div>
+            </div>
+        </div>
+
+        <!-- Лог событий-->
+        <div id="game-log"></div>
+    </div>
+</div>
+</div>
+
+<!--
+       Универсальное диалоговое окно,
+       класс .hidden в CSS позволяет прятать или показывать его,
+       просто убирая или добавляя этот класс у элемента
+   -->
+<div id="dialog" class="hidden">
+    <img src="" id="dialog-icon"/>
+    <div id="dialog-title"></div>
+    <div id="dialog-hint"></div>
+    <div id="dialog-choices"></div>
+    <br/>
+    <button class="hidden red-button" id="dialog-exit-button">Дальше</button>
+</div>
+
+<script src="js/Utils.js"></script>
+<script src="js/DialogWindow.js"></script>
+
+<!-- состояние мира игры + observable для модели -->
+<script src="js/world/WorldState.js"></script>
+<script src="js/world/WorldUtils.js"></script>
+
+<!-- Редактируемые данные - правила игры  -->
+<script src="js/data/StartWorldState.js"></script>
+<script src="js/data/GameConstants.js"></script>
+<script src="js/data/CaravanConstants.js"></script>
+<script src="js/data/BanditEvents.js"></script>
+<script src="js/data/BanditDialogs.js"></script>
+<script src="js/data/RandomEvents.js"></script>
+<script src="js/data/ShopEvents.js"></script>
+<script src="js/data/DeathRules.js"></script>
+<script src="js/data/DeathDialog.js"></script>
+<script src="js/data/DropDialogs.js"></script>
+<script src="js/data/TownDialog.js"></script>
+
+<!-- сама игра -->
+<script src="js/Game.js"></script>
+
+<!-- плагины -->
+<script src="js/plugins/CorePlugin.js"></script>
+<script src="js/plugins/Map2DPlugin.js"></script>
+<script src="js/plugins/RandomEventPlugin.js"></script>
+<script src="js/plugins/DeathCheck.js"></script>
+<script src="js/plugins/ShopPlugin.js"></script>
+<script src="js/plugins/BanditPlugin.js"></script>
+<script src="js/plugins/DropPlugin.js"></script>
+<script src="js/plugins/WorldViewPlugin.js"></script>
+
+<!-- запуск игры -->
+<script>
+    DialogWindow.init();
+    Game.restart();
+</script>
+
+</body>
+</html>

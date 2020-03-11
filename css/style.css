@@ -1,0 +1,224 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #000;
+}
+
+.hidden { display: none; }
+.endfloat { float: none; clear: both; display: block; height: 0; }
+
+#w {
+    width: 960px;
+    margin: 0 auto;
+    background: url("../images/bg_001.jpg") center;
+    background-size: cover;
+
+    border: 4px solid #3c2b21;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+
+    position: relative;
+}
+
+#logo {
+    display: block;
+    float: left;
+    width: 345px;
+    height: 58px;
+    margin-left: -12px;
+}
+
+a img {
+    border: none;
+}
+
+#game {
+    margin: 0px 24px 24px 24px;
+}
+
+.frame_border {
+    margin: 0 auto;
+    border: 8px inset #3c2b21;
+    border-radius: 8px;
+}
+
+#game-map2d {
+    width: 896px;
+    height: 512px;
+    background: url("../images/map_texture_001.png");
+    position: relative;
+}
+
+.town {
+    width: 64px;
+    height: 64px;
+    background: url("../images/town_marker_green_001.png");
+    position: absolute;
+}
+
+#map-player {
+    width: 64px;
+    height: 64px;
+    background: url("../images/map-marker-player.png") center no-repeat;
+    position: absolute;
+}
+
+#game-weight-bar {
+    float: right;
+    width: 430px;
+    height: 32px;
+    margin: 10px 24px 0 0;
+    background: #0c0906;
+    border-radius: 8px;
+    border: #3c2b21 inset 4px;
+    overflow: hidden;
+}
+
+#game-weight-barfill {
+    height: 100%;
+    width: 50%;
+    background: #484411;
+}
+
+#game-weight-bartext{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #90902c;
+    font-size: 14px;
+    line-height: 32px;
+    margin-top: -32px;
+}
+
+#game-stats {
+    margin: 6px auto 0 auto;
+    width: 912px;
+}
+
+#game-stats div {
+    float: left;
+    width: 93px;
+    height: 76px;
+    margin-left: 18px;
+    background: url("../images/ui-stat-indikator.png") top center no-repeat;
+    text-align: center;
+}
+
+#game-stats span {
+    display: block;
+    height: 44px;
+}
+
+.game-stat-value {
+    margin: 10px auto 0;
+    font-size: 16px;
+    color: black;
+}
+
+.game-stat-desc {
+    margin: -8px auto 0;
+    font-size: 16px;
+    color: #cbcbcb;
+    text-transform: uppercase;
+    line-height: 16px;
+}
+
+#game-log {
+    background: #130F09;
+    padding: 12px;
+    line-height: 150%;
+    font-size: 16px;
+    height: 200px;
+    overflow: auto;
+    border: #336626 solid 1px;
+    border-radius: 8px;
+}
+
+.log-message-positive {
+    color: #58a638;
+}
+
+.log-message-negative {
+    color: #FF6633;
+}
+
+.log-message-neutral {
+    color: #90908F;
+}
+
+#dialog {
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    margin-left: -220px;
+    width: 440px;
+
+    border: 4px outset #3c2b21;
+    border-radius: 12px;
+    background: url("../images/bg_001.jpg");
+
+    padding: 16px 16px 4px 16px;
+    text-align: center;
+}
+
+#dialog div, #dialog img, #dialog button {
+    text-align: center;
+    margin: 0 auto 8px auto;
+}
+
+#dialog-icon {
+    display: block;
+    border-radius: 8px;
+    border: 6px inset #3c2b21;
+}
+
+#dialog-title{
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #cbcbcb;
+}
+
+#dialog-hint {
+    font-size: 14px;
+    color: #cbcbcb;
+    padding: 4px;
+    border-radius: 2px;
+    background: rgba(11,11,11,0.6);
+}
+
+.dialog-choice {
+    display: block;
+    color: #cbcbcb;
+    border: 2px outset #3c2b21;
+    border-radius: 8px;
+    background: #130F09;
+    width: 300px;
+    padding: 8px;
+}
+
+.red-button {
+    margin: 0 auto;
+    border-radius: 12px;
+    background: url("../images/button_01.png") top left no-repeat;
+    height: 49px;
+    width: 200px;
+    color: #cbcbcb;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.red-button, .dialog-choice{
+    box-shadow: 0 4px rgba(22, 22, 22, 0.5);
+}
+
+.red-button:active, .dialog-choice:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px rgba(22, 22, 22, 0.5);
+}
