@@ -10,6 +10,9 @@ function WorldState(stats) {
     this.cargo = stats.cargo;   // товаров для торговли
     this.money = stats.money;   //деньги
 
+    this.maxX = 810;
+	this.maxY = 430;
+	
     // лог событий, содержит день, описание и характеристику
     //  { day: 1, message: "Хорошо покушали", goodness: Goodness.positive}
     this.log = [];

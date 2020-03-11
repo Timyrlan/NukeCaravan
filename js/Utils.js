@@ -29,3 +29,7 @@ function checkEventForStep(dayProbability) {
     var probability = dayProbability * GameConstants.STEP_IN_MS / GameConstants.DAY_IN_MS;
     return checkProbability(probability);
 }
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}

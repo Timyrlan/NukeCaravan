@@ -55,11 +55,13 @@ Map2DPlugin.init = function (world) {
     }
 	
     // если найдены города на карте, помещаем игрока в первый попавшийся
-    if (this.view.towns.length > 0) {
-        world.caravan.x = this.view.towns[0].offsetLeft;
-        world.caravan.y = this.view.towns[0].offsetTop;
+	
+    if (this.world.cities.length > 0) {
+		var startCity = this.world.cities[0];
+        world.caravan.x = startCity.x;
+        world.caravan.y = startCity.y;
         // запоминаем его как последний, чтобы не торговать в нем же при быстром возвращении
-        this.lastTown = {x: world.caravan.x, y: world.caravan.y };
+        this.lastTown = startCity;
         world.stop = true; // чтобы не двигался
         this.movePlayerViewTo(world.caravan.x, world.caravan.y);		
     }
