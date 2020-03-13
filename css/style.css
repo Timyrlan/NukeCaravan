@@ -59,6 +59,15 @@ a img {
     height: 64px;
     background: url("../images/town_marker_green_001.png");
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: 64px 64px;
+}
+
+.townCaption {
+    color:#4CFF33;
+    top: 10px; 
+    left: 10px;
+    position: relative;
 }
 
 #map-player {
