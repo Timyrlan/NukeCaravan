@@ -13,6 +13,17 @@ Map2DPlugin = {
     lastTown: {x: -1000, y: -1000},
 };
 
+var findCityByNumber = function(number, world)
+{
+    for (var i = 0; i < world.cities.length; i++) {
+        if(world.cities[i].number===number){
+            return world.cities[i];
+        }
+    }
+
+    return null;
+}
+
 Map2DPlugin.init = function (world) {
     this.world = world;
 
@@ -47,7 +58,8 @@ Map2DPlugin.init = function (world) {
             if (world.uiLock) return; // если какой-то плагин перехватил работу с пользователем, то есть открыто модальное окно, не реагируем на действия пользователя
             var element = e.target || e.srcElement;
             world.from = {x: world.caravan.x, y: world.caravan.y};//todo
-            world.to = {x: element.offsetLeft, y: element.offsetTop};
+            var city = findCityByNumber(element.cityNumber,world);
+            world.to = {x: city.x, y: city.y};
             world.stop = false;
             map2dPlugin.inTown = false; // все, покидаем город    
 			e.stopPropagation()			

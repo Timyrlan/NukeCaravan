@@ -165,7 +165,8 @@ var updateVisibleCities = function(world) {
         if (areNearPoints(city, world.caravan, 100)) {
             const cityElement = document.getElementById(`city${city.number}`);
             cityElement.classList.remove("hidden");
-            cityElement.style = `top:${city.y}px;left:${city.x}px;`;
+            cityElement.style = `top:${city.y-64/2}px;left:${city.x-64/2}px;`;
+            cityElement.cityNumber = city.number;
         }
     }
 };
