@@ -62,8 +62,8 @@ a img {
 }
 
 #map-player {
-    width: 64px;
-    height: 64px;
+    width: 34px;
+    height: 26px;
     background: url("../images/map-marker-player.png") center no-repeat;
     position: absolute;
 }

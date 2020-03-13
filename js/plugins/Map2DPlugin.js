@@ -103,8 +103,8 @@ Map2DPlugin.update = function () {
 
 
 Map2DPlugin.movePlayerViewTo = function (x, y) {
-    this.view.player.style.left = x + "px"; // сдвигаем маркер на карте
-    this.view.player.style.top = y + "px"; // сдвигаем маркер на карте
+    this.view.player.style.left = x-34/2 + "px"; // сдвигаем маркер на карте
+    this.view.player.style.top = y -26/3+ "px"; // сдвигаем маркер на карте
 };
 
 Map2DPlugin.onDialogClose = function () {
