@@ -144,7 +144,7 @@ GenerateCity.init = function(world) {
 
         if (cityPlaced) {
             world.cities.push(city);
-            var cityHtml = `<div id="city${city.number}" class="city hidden" style="top:${city.y - 64 / 2}px;left:${city.x - 64 / 2}px;"> <div class="town "></div> <div class="townCaption" style="top: 70px; "><p id="cityCaption${city.number}">${city.name}</p></div> </div>`;
+            var cityHtml = `<div id="city${city.number}" class="city hidden" cityNumber="${city.number}" style="top:${city.y - 64 / 2}px;left:${city.x - 64 / 2}px;"> <div class="town "></div> <div class="townCaption" style="top: 70px; "><p id="cityCaption${city.number}">${city.name}</p></div> </div>`;
             var cityElement = htmlToElement(cityHtml);
             map.appendChild(cityElement);
         }
