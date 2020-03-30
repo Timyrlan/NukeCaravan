@@ -63,6 +63,12 @@ a img {
     background-size: 64px 64px;
 }
 
+.city {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+}
+
 .townCaption {
     color:#4CFF33;
     top: 10px; 

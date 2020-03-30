@@ -3,6 +3,13 @@
  * */
 GenerateCity = {};
 
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    html = html.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+
 GenerateCity.init = function(world) {
     hideAllCities();
 
@@ -117,7 +124,7 @@ GenerateCity.init = function(world) {
 
 
     world.cities = [];
-
+    var map = document.getElementById('game-map2d');
     const cityCount = 10;
     for (var i = 0; i < cityCount; i++) {
 
@@ -133,13 +140,18 @@ GenerateCity.init = function(world) {
 
         } while (i < 10 && !cityPlaced);
 
+        
+
         if (cityPlaced) {
             world.cities.push(city);
-            var cityCaption = document.getElementById(`cityCaption${city.number}`);
-            cityCaption.textContent = city.name;            
+            var cityHtml = `<div id="city${city.number}" class="city hidden" style="top:${city.y - 64 / 2}px;left:${city.x - 64 / 2}px;"> <div class="town "></div> <div class="townCaption" style="top: 70px; "><p id="cityCaption${city.number}">${city.name}</p></div> </div>`;
+            var cityElement = htmlToElement(cityHtml);
+            map.appendChild(cityElement);
         }
     }
 };
+
+
 
 var putCity = function(world, city) {
     city.x = getRandomInt(world.maxX);
@@ -167,9 +179,6 @@ var updateVisibleCities = function(world) {
         if (areNearPoints(city, world.caravan, 100)) {
             const cityElement = document.getElementById(`city${city.number}`);
             cityElement.classList.remove("hidden");
-            cityElement.style = `top:${city.y-64/2}px;left:${city.x-64/2}px;`;
-            cityElement.cityNumber = city.number;
-            
         }
     }
 };
